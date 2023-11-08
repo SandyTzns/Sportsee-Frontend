@@ -8,7 +8,7 @@ export const ScoreChart = () => {
       name: "18-24",
       uv: 12,
       pv: 100,
-      fill: "red",
+      fill: "blue",
     },
   ];
 
