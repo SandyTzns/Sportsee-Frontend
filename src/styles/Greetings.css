@@ -1,0 +1,15 @@
+.greetings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  top: 153px;
+  left: 227px;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+.username {
+  color: red;
+}

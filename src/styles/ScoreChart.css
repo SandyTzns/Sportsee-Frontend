@@ -1,0 +1,21 @@
+.score-container {
+  position: relative;
+  border: 1px solid black;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 40%;
+  left: 11%;
+  font-size: 26px;
+  font-weight: 500;
+  color: #979797;
+}
+
+.percent {
+  color: #282d30;
+  font-weight: 500;
+}

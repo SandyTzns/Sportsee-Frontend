@@ -1,0 +1,35 @@
+.specs-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.cat-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 124px;
+  width: 258px;
+  background-color: #fbfbfb;
+}
+
+.specs-container img {
+  height: 60px;
+  width: 60px;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nb {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.text {
+  color: #74798c;
+  font-size: 14px;
+}

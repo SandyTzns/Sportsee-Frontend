@@ -1,0 +1,32 @@
+.sidebar-container {
+  width: 117px;
+  height: auto;
+  background-color: black;
+  color: beige;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.sidebar {
+  margin-top: 273px;
+  margin-bottom: 163px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.sidebar li img {
+  width: 64px;
+  height: 64px;
+}
+
+.copyright {
+  writing-mode: vertical-lr;
+  text-orientation: right;
+  transform: rotate(-180deg);
+  margin-bottom: 59px;
+}
