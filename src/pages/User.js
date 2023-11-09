@@ -5,8 +5,8 @@ import { Greetings } from "../components/Greetings";
 import axios from "axios";
 // import { PerformanceChart } from "../components/PerformanceChart";
 // import { ScoreChart } from "../components/ScoreChart";
-// import { SessionsChart } from "../components/SessionsChart";
-import { ActivityChart } from "../components/ActivityChart";
+import { SessionsChart } from "../components/SessionsChart";
+// import { ActivityChart } from "../components/ActivityChart";
 
 function User() {
   const { id } = useParams();
@@ -94,8 +94,8 @@ function User() {
       {/* <Specs data={data} />
       <PerformanceChart data={performance} /> */}
       {/* <ScoreChart /> */}
-      {/* <SessionsChart />*/}
-      <ActivityChart />
+      <SessionsChart />
+      {/* <ActivityChart /> */}
     </div>
   );
 }
