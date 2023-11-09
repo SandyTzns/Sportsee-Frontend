@@ -1,79 +1,78 @@
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
+import "../styles/ActivityChart.css";
 
 export const ActivityChart = () => {
   const data = [
     {
-      name: "Page A",
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
+      name: "1",
+      uv: 70,
+      pv: 240,
     },
     {
-      name: "Page B",
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
+      name: "2",
+      uv: 69,
+      pv: 220,
     },
     {
-      name: "Page C",
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
+      name: "3",
+      uv: 70,
+      pv: 280,
     },
     {
-      name: "Page D",
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
+      name: "4",
+      uv: 70,
+      pv: 500,
     },
     {
-      name: "Page E",
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
+      name: "5",
+      uv: 69,
+      pv: 160,
     },
     {
-      name: "Page F",
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
+      name: "6",
+      uv: 69,
+      pv: 162,
     },
     {
-      name: "Page G",
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
+      name: "7",
+      uv: 69,
+      pv: 390,
     },
   ];
+
   return (
-    <div>
+    <div className="activity_wrapper">
       <h2>DAILY ACTIVITY CHART</h2>
-      <BarChart
-        width={500}
-        height={300}
-        data={data}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
+      <div className="legend">
+        <span>Activité quotidienne</span>
+        <ul>
+          <li>
+            <span className="blacktxt">Poids (kg)</span>
+          </li>
+          <li className="redDot">
+            <span className="blacktxt">Calories brûlées (Kcal)</span>
+          </li>
+        </ul>
+      </div>
+
+      <BarChart width={637} height={300} data={data} barGap={7}>
+        <CartesianGrid strokeDasharray="3 3" vertical={false} color="#DEDEDE" />
+        <XAxis
+          dataKey="name"
+          strokeOpacity={1}
+          tickLine={false}
+          scale="point"
+          padding={{ left: 9, right: 9 }}
+        />
+        <YAxis
+          orientation="right"
+          strokeDasharray={1}
+          tickCount={3}
+          strokeOpacity={0}
+        />
         <Tooltip />
-        <Legend />
-        <Bar dataKey="pv" fill="#8884d8" />
-        <Bar dataKey="uv" fill="#82ca9d" />
+        <Bar dataKey="pv" fill="black" barSize={7} radius={[3, 3, 0, 0]} />
+        <Bar dataKey="uv" fill="red" barSize={7} radius={[3, 3, 0, 0]} />
       </BarChart>
     </div>
   );

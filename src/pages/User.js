@@ -4,9 +4,9 @@ import { Greetings } from "../components/Greetings";
 // import { Specs } from "../components/Specs";
 import axios from "axios";
 // import { PerformanceChart } from "../components/PerformanceChart";
-import { ScoreChart } from "../components/ScoreChart";
+// import { ScoreChart } from "../components/ScoreChart";
 // import { SessionsChart } from "../components/SessionsChart";
-// import { ActivityChart } from "../components/ActivityChart";
+import { ActivityChart } from "../components/ActivityChart";
 
 function User() {
   const { id } = useParams();
@@ -93,9 +93,9 @@ function User() {
       <Greetings name={data.firstName} />
       {/* <Specs data={data} />
       <PerformanceChart data={performance} /> */}
-      <ScoreChart />
-      {/* <SessionsChart />
-      <ActivityChart /> */}
+      {/* <ScoreChart /> */}
+      {/* <SessionsChart />*/}
+      <ActivityChart />
     </div>
   );
 }
