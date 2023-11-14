@@ -1,12 +1,13 @@
-.activity_wrapper{
-    border: 1px solid blueviolet;
-    width: 837px;
+.activity_wrapper {
+  padding: 10px 20px;
+  border-radius: 8px;
 }
 
 .legend {
   display: flex;
-  gap: 100px;
   justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 50px;
   font-size: 14px;
 }
 

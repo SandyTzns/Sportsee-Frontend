@@ -1,0 +1,49 @@
+.grid-container {
+  display: grid;
+  height: 750px;
+  grid-template-columns: 200px 257px 257px 257px 262px;
+  grid-template-rows: 91px 250px 320px 379px;
+  grid-template-areas:
+    "horizontal horizontal horizontal horizontal horizontal"
+    "vertical greeting greeting greeting greeting"
+    "vertical activity activity activity specs"
+    "vertical sessions performance score specs";
+  column-gap: 30px;
+}
+
+.item-1 {
+  grid-area: greeting;
+  align-self: center;
+}
+
+.item-2 {
+  grid-area: activity;
+  justify-self: self-start;
+  background-color: lightsalmon;
+}
+
+.item-3 {
+  grid-area: specs;
+}
+
+.item-4 {
+  grid-area: sessions;
+  margin: 31px 0 0 0;
+}
+
+.item-5 {
+  grid-area: performance;
+  margin: 31px 0 0 0;
+}
+
+.item-6 {
+  grid-area: score;
+  margin: 31px 0 0 0;
+}
+
+.item-7 {
+  grid-area: horizontal;
+}
+.item-8 {
+  grid-area: vertical;
+}

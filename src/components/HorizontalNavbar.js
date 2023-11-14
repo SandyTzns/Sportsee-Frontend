@@ -4,7 +4,7 @@ import logo from "../assets/logo.png";
 export const HorizontalNavbar = () => {
   return (
     <div
-      className="topnav-container
+      className="topnav-container item item-7
     "
     >
       <ul className="topnav">

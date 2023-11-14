@@ -1,17 +1,16 @@
-import "../styles/ChartRadar.css";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from "recharts";
+import "../styles/PerformanceChart.css";
 
 export const PerformanceChart = ({ data }) => {
   const NewMe = data;
   return (
-    <div className="scoreCharts">
-      <h2>THIS CHART IS ALREADY DONE WITH THE API</h2>
+    <div className="performance-wrapper item item-5">
       <RadarChart
-        cx={300}
-        cy={250}
-        outerRadius={150}
-        width={500}
-        height={500}
+        cx={125}
+        cy={120}
+        outerRadius={70}
+        width={258}
+        height={233}
         data={NewMe}
       >
         <PolarGrid radialLines={false} />

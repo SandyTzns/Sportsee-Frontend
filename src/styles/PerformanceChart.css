@@ -1,0 +1,9 @@
+.performance-wrapper {
+  background-color: #282d30;
+  height: 263px;
+  border-radius: 8px;
+}
+
+tspan {
+  font-size: 12px;
+}

@@ -13,17 +13,16 @@ export const ScoreChart = () => {
   ];
 
   return (
-    <div className="score-container">
-      <h2>SCORE CHART</h2>
+    <div className="score-container item item-6">
       <RadialBarChart
-        width={500}
-        height={300}
-        cx={150}
-        cy={150}
+        width={258}
+        height={233}
+        cx={125}
+        cy={120}
         innerRadius={100}
         outerRadius={200}
         startAngle={90}
-        endAngle={360}
+        endAngle={46.8}
         barSize={10}
         data={data}
       >

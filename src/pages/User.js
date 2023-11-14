@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Greetings } from "../components/Greetings";
-// import { Specs } from "../components/Specs";
+import "../styles/User.css";
 import axios from "axios";
-// import { PerformanceChart } from "../components/PerformanceChart";
-// import { ScoreChart } from "../components/ScoreChart";
+import { Greetings } from "../components/Greetings";
+import { Specs } from "../components/Specs";
+import { PerformanceChart } from "../components/PerformanceChart";
+import { ScoreChart } from "../components/ScoreChart";
 import { SessionsChart } from "../components/SessionsChart";
-// import { ActivityChart } from "../components/ActivityChart";
+import { ActivityChart } from "../components/ActivityChart";
+import { HorizontalNavbar } from "../components/HorizontalNavbar";
+import { VerticalNavbar } from "../components/VerticalNavbar";
 
 function User() {
   const { id } = useParams();
@@ -19,8 +22,8 @@ function User() {
 
   const [data, setData] = useState({});
   const [performance, setPerformance] = useState({});
-  // const [activity, setActivity] = useState({})
-  // const [session, setsession] = useState({})
+  const [activity, setActivity] = useState({});
+  // const [session, setsession] = useState({});
 
   // FETCH USER_MAIN_DATA
   const fetchData = async () => {
@@ -42,19 +45,18 @@ function User() {
         console.log(`Error: ${error}`);
       });
   };
-  // FETCH USER_PERFORMANCE
   const fetchPerformance = async () => {
     await axios
       .get(`http://localhost:3000/user/${id}/performance`)
       .then((response) => {
-        let activityResponse = response.data.data;
-        let activityResponseData = activityResponse.data;
-        let activityResponseKind = activityResponse.kind;
+        let performanceResponse = response.data.data;
+        let performanceResponseData = performanceResponse.data;
+        let performanceResponseKind = performanceResponse.kind;
 
-        let newArr = activityResponseData.map((object) => {
+        let newArr = performanceResponseData.map((object) => {
           return {
             value: object.value,
-            kind: activityResponseKind[`${object.kind}`],
+            kind: performanceResponseKind[`${object.kind}`],
           };
         });
         setPerformance(newArr);
@@ -70,18 +72,21 @@ function User() {
       .get(`http://localhost:3000/user/${id}/activity`)
       .then((response) => {
         // console.log(response.data.data);
+        let activityResponse = response.data.data.sessions;
+        setActivity(activityResponse);
       })
       .catch((error) => {
         console.log(`Error: ${error}`);
       });
+
+    // console.log(activity);
   };
 
-  // FETCH USER_AVERAGE_SESSIONS
   // const fetchSession = async () => {
   //   await axios
   //     .get(`http://localhost:3000/user/${id}/average-sessions`)
   //     .then((response) => {
-  //  console.log(response);
+  //       console.log(response);
   //     })
   //     .catch((error) => {
   //       console.log(`Error: ${error}`);
@@ -89,13 +94,15 @@ function User() {
   // };
 
   return (
-    <div>
+    <div className="grid-container">
+      <HorizontalNavbar />
+      <VerticalNavbar />
       <Greetings name={data.firstName} />
-      {/* <Specs data={data} />
-      <PerformanceChart data={performance} /> */}
-      {/* <ScoreChart /> */}
+      <ActivityChart data={activity} />
+      <Specs data={data} />
       <SessionsChart />
-      {/* <ActivityChart /> */}
+      <PerformanceChart data={performance} />
+      <ScoreChart />
     </div>
   );
 }

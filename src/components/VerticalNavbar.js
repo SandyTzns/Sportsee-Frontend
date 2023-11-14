@@ -6,7 +6,7 @@ import iconfour from "../assets/iconfour.png";
 
 export const VerticalNavbar = () => {
   return (
-    <div className="sidebar-container">
+    <div className="sidebar-container item item-8">
       <ul className="sidebar">
         <li>
           <img src={iconone} alt="iconeone" />

@@ -1,6 +1,8 @@
 .specs-container {
   display: flex;
   flex-direction: column;
+  border: 1px solid black;
+  height: 613px;
 }
 
 .cat-wrapper {
@@ -8,8 +10,8 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  height: 124px;
-  width: 258px;
+  /* height: 124px;
+  width: auto; */
   background-color: #fbfbfb;
 }
 
@@ -18,11 +20,11 @@
   width: 60px;
 }
 
-.category {
+/* .category {
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
+} */
 
 .nb {
   font-weight: bold;

@@ -41,8 +41,8 @@ export const SessionsChart = () => {
     },
   ];
   return (
-    <div className="helloContainer">
-      <LineChart width={258} height={263} data={data}>
+    <div className="helloContainer item item-4">
+      <LineChart width={258} height={233} data={data}>
         <CartesianGrid stroke="none" fill="red" />
         <XAxis
           dataKey="name"
