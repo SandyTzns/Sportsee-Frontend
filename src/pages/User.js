@@ -18,12 +18,13 @@ function User() {
     fetchData();
     fetchPerformance();
     fetchActivity();
+    fetchSession();
   }, []);
 
   const [data, setData] = useState({});
   const [performance, setPerformance] = useState({});
   const [activity, setActivity] = useState({});
-  // const [session, setsession] = useState({});
+  const [session, setSession] = useState({});
 
   // FETCH USER_MAIN_DATA
   const fetchData = async () => {
@@ -71,27 +72,36 @@ function User() {
     await axios
       .get(`http://localhost:3000/user/${id}/activity`)
       .then((response) => {
-        // console.log(response.data.data);
         let activityResponse = response.data.data.sessions;
-        setActivity(activityResponse);
+
+        let newActivity = activityResponse.map((object) => {
+          return {
+            day: object.day,
+            kilogram: object.kilogram,
+            calories: Math.round(object.calories / 10),
+            // calories: Math.round(object.calories * 0.00013 * 1000),
+          };
+        });
+        console.log(newActivity);
+        setActivity(newActivity);
       })
       .catch((error) => {
         console.log(`Error: ${error}`);
       });
-
-    // console.log(activity);
   };
 
-  // const fetchSession = async () => {
-  //   await axios
-  //     .get(`http://localhost:3000/user/${id}/average-sessions`)
-  //     .then((response) => {
-  //       console.log(response);
-  //     })
-  //     .catch((error) => {
-  //       console.log(`Error: ${error}`);
-  //     });
-  // };
+  const fetchSession = async () => {
+    await axios
+      .get(`http://localhost:3000/user/${id}/average-sessions`)
+      .then((response) => {
+        let sessionResponse = response.data.data.sessions;
+        console.log(sessionResponse);
+        setSession(sessionResponse);
+      })
+      .catch((error) => {
+        console.log(`Error: ${error}`);
+      });
+  };
 
   return (
     <div className="grid-container">
@@ -100,7 +110,7 @@ function User() {
       <Greetings name={data.firstName} />
       <ActivityChart data={activity} />
       <Specs data={data} />
-      <SessionsChart />
+      <SessionsChart data={session} />
       <PerformanceChart data={performance} />
       <ScoreChart />
     </div>

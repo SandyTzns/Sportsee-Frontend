@@ -1,51 +1,26 @@
 // USER AVERAGE SESSIONS = line chart
 import "../styles/SessionsChart.css";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-} from "recharts";
+import { LineChart, Line, XAxis, CartesianGrid, Tooltip } from "recharts";
 
-export const SessionsChart = () => {
-  const data = [
-    {
-      name: "L",
-      pv: 30,
-    },
-    {
-      name: "M",
-      pv: 23,
-    },
-    {
-      name: "M",
-      pv: 45,
-    },
-    {
-      name: "J",
-      pv: 50,
-    },
-    {
-      name: "V",
-      pv: 0,
-    },
-    {
-      name: "S",
-      pv: 0,
-    },
-    {
-      name: "D",
-      pv: 60,
-    },
-  ];
+export const SessionsChart = ({ data }) => {
+  const newSession = data;
+
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="custom-tooltip">
+          <p>{payload[0].value + " min"}</p>
+        </div>
+      );
+    }
+  };
+
   return (
     <div className="helloContainer item item-4">
-      <LineChart width={258} height={233} data={data}>
+      <LineChart width={258} height={233} data={newSession}>
         <CartesianGrid stroke="none" fill="red" />
         <XAxis
-          dataKey="name"
+          dataKey="day"
           strokeOpacity={0}
           tickLine={false}
           tick={{
@@ -54,11 +29,11 @@ export const SessionsChart = () => {
           }}
           tickMargin={20}
         />
-        <YAxis hide domain={["dataMin-10", "dataMax+10"]} />
-        <Tooltip cursor={false} />
+
+        <Tooltip cursor={false} content={<CustomTooltip />} />
         <Line
           type="natural"
-          dataKey="pv"
+          dataKey="sessionLength"
           stroke="white"
           strokeWidth={2}
           dot={false}

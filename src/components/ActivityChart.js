@@ -4,43 +4,16 @@ import "../styles/ActivityChart.css";
 export const ActivityChart = ({ data }) => {
   const newActivity = data;
 
-  // const data = [
-  //   {
-  //     name: "1",
-  //     uv: 70,
-  //     pv: 240,
-  //   },
-  //   {
-  //     name: "2",
-  //     uv: 69,
-  //     pv: 220,
-  //   },
-  //   {
-  //     name: "3",
-  //     uv: 70,
-  //     pv: 280,
-  //   },
-  //   {
-  //     name: "4",
-  //     uv: 70,
-  //     pv: 500,
-  //   },
-  //   {
-  //     name: "5",
-  //     uv: 69,
-  //     pv: 160,
-  //   },
-  //   {
-  //     name: "6",
-  //     uv: 69,
-  //     pv: 162,
-  //   },
-  //   {
-  //     name: "7",
-  //     uv: 69,
-  //     pv: 390,
-  //   },
-  // ];
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="custom-tooltip">
+          <p>{payload[0].value + "kg"}</p>
+          <p>{payload[1].value + "Kcal"}</p>
+        </div>
+      );
+    }
+  };
 
   return (
     <div className="activity_wrapper item item-2">
@@ -65,6 +38,7 @@ export const ActivityChart = ({ data }) => {
           tickFormatter={(day) => new Date(day).getDate()}
           padding={{ left: 9, right: 9 }}
           scale="point"
+          tickMargin={20}
         />
         <YAxis
           orientation="right"
@@ -72,9 +46,11 @@ export const ActivityChart = ({ data }) => {
           strokeDasharray={1}
           tickCount={3}
           strokeOpacity={0}
+          tickMargin={20}
+          axisLine={false}
         />
 
-        <Tooltip />
+        <Tooltip content={<CustomTooltip />} />
         <Bar
           dataKey="kilogram"
           fill="black"
