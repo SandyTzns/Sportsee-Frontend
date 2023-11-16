@@ -112,7 +112,7 @@ function User() {
       <Specs data={data} />
       <SessionsChart data={session} />
       <PerformanceChart data={performance} />
-      <ScoreChart />
+      <ScoreChart data={data.score} />
     </div>
   );
 }

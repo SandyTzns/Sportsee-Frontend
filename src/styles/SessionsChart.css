@@ -5,5 +5,15 @@
   background-color: red;
   height: 263px;
   border-radius: 8px;
-  border: 1px solid black;
+}
+
+.tooltip {
+  display: flex;
+  color: black;
+  font-size: 8;
+  font-weight: 500;
+  align-items: center;
+  gap: 40px;
+  padding: 10px;
+  background-color: white;
 }

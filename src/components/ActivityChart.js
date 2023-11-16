@@ -9,7 +9,7 @@ export const ActivityChart = ({ data }) => {
       return (
         <div className="custom-tooltip">
           <p>{payload[0].value + "kg"}</p>
-          <p>{payload[1].value + "Kcal"}</p>
+          <p>{payload[1].value * 10 + "Kcal"}</p>
         </div>
       );
     }
@@ -40,6 +40,7 @@ export const ActivityChart = ({ data }) => {
           scale="point"
           tickMargin={20}
         />
+
         <YAxis
           orientation="right"
           dataKey="kilogram"
