@@ -37,7 +37,7 @@ export const ActivityChart = ({ data }) => {
           tickLine={false}
           tickFormatter={(day) => new Date(day).getDate()}
           padding={{ left: 9, right: 9 }}
-          scale="point"
+          // scale="point"
           tickMargin={20}
         />
 
@@ -57,6 +57,7 @@ export const ActivityChart = ({ data }) => {
           fill="black"
           barSize={7}
           radius={[3, 3, 0, 0]}
+          activeBar={true}
         />
         <Bar dataKey="calories" fill="red" barSize={7} radius={[3, 3, 0, 0]} />
       </BarChart>

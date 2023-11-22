@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import "../styles/Profile.css";
 
 function Profile() {
   return (
-    <div>
+    <div className="users">
       <Link to="/user/12">
         <h1> KARL</h1>
       </Link>

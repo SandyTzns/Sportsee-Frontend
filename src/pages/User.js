@@ -26,7 +26,6 @@ function User() {
   const [activity, setActivity] = useState({});
   const [session, setSession] = useState({});
 
-  // FETCH USER_MAIN_DATA
   const fetchData = async () => {
     await axios
       .get(`http://localhost:3000/user/${id}`)
@@ -67,7 +66,6 @@ function User() {
       });
   };
 
-  // FETCH USER_ACTIVITY
   const fetchActivity = async () => {
     await axios
       .get(`http://localhost:3000/user/${id}/activity`)
@@ -79,10 +77,8 @@ function User() {
             day: object.day,
             kilogram: object.kilogram,
             calories: Math.round(object.calories / 10),
-            // calories: Math.round(object.calories * 0.00013 * 1000),
           };
         });
-        console.log(newActivity);
         setActivity(newActivity);
       })
       .catch((error) => {
@@ -95,7 +91,6 @@ function User() {
       .get(`http://localhost:3000/user/${id}/average-sessions`)
       .then((response) => {
         let sessionResponse = response.data.data.sessions;
-        console.log(sessionResponse);
         setSession(sessionResponse);
       })
       .catch((error) => {

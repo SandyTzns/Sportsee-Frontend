@@ -35,7 +35,11 @@ export const SessionsChart = ({ data }) => {
 
   return (
     <div className="helloContainer item item-4">
-      <LineChart width={258} height={263} data={newSession}>
+      <div className="sessions_legend">
+        <span>Durée moyenne des</span>
+        <span>sessions</span>
+      </div>
+      <LineChart width={258} height={200} data={newSession}>
         <CartesianGrid stroke="none" fill="red" />
         <XAxis
           dataKey="day"

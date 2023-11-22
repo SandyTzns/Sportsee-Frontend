@@ -4,11 +4,10 @@ import "../styles/ScoreChart.css";
 
 export const ScoreChart = ({ data }) => {
   const scoreData = [data];
-
-  // Karl = 12% --> 43.2degré --> startAngle{0} endAngle{43.2} ou starAngle{90} endAngle{113.2}
-  // Cécile = 18% --> 108degré --> startAngle{0} endAngle{108} ou starAngle{90} endAngle{198}
+  const formatDataAngle = scoreData[0].score * 3.6;
   const startAngle = 90;
-  const endAngle = 140;
+  const endAngle = startAngle + formatDataAngle;
+
   return (
     <div className="score-container item item-6">
       <RadialBarChart
