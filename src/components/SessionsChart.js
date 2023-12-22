@@ -1,4 +1,3 @@
-// USER AVERAGE SESSIONS = line chart
 import "../styles/SessionsChart.css";
 import {
   LineChart,
@@ -11,7 +10,6 @@ import {
 
 export const SessionsChart = ({ data }) => {
   const newSession = data;
-  console.log(newSession);
   const formatLabel = (value) => {
     if (value === 1) return "L";
     if (value === 2) return "M";

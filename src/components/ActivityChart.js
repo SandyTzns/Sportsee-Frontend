@@ -37,8 +37,7 @@ export const ActivityChart = ({ data }) => {
           tickLine={false}
           tickFormatter={(day) => new Date(day).getDate()}
           padding={{ left: 9, right: 9 }}
-          // scale="point"
-          tickMargin={20}
+                 tickMargin={20}
         />
 
         <YAxis

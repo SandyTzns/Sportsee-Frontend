@@ -1,4 +1,3 @@
-// SCORE
 import { RadialBarChart, RadialBar } from "recharts";
 import "../styles/ScoreChart.css";
 

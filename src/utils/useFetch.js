@@ -6,7 +6,6 @@ function useFetch(url) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // run once, on start
     getData();
   }, []);
 
