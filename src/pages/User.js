@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useState } from "react";
 import "../styles/User.css";
 import { Greetings } from "../components/Greetings";
 import { Specs } from "../components/Specs";
@@ -10,38 +9,31 @@ import { ActivityChart } from "../components/ActivityChart";
 import { HorizontalNavbar } from "../components/HorizontalNavbar";
 import { VerticalNavbar } from "../components/VerticalNavbar";
 import useFetch from "../utils/useFetch";
+import { useFetchTest } from "../utils/useFetchTest";
 
 function User() {
-  const { id } = useParams();
+  const {
+    data: user,
+    error: userError,
+    loading: userLoading,
+  } = useFetchTest(`http://localhost:3000/user/12`);
 
-  const baseUrl = `http://localhost:3000/user/${id}`;
-
-  const { data: rawUserData } = useFetch(baseUrl);
-  const [userData, setUserData] = useState({});
-
-  const { data: rawActivityData } = useFetch(`${baseUrl}/activity`);
-  const [activity, setActivity] = useState({});
-
-  const { data: rawSessionData } = useFetch(`${baseUrl}/average-sessions`);
-  const [sessions, setSessions] = useState("");
-
-  const { data: rawPerformanceData } = useFetch(`${baseUrl}/performance`);
-  const [performance, setPerformance] = useState({});
-
-  useEffect(() => {
+  console.log(user)
+  
+  const setUserDataFunc = (data) => {
     setUserData({
-      userId: rawUserData?.id,
-      calorie: rawUserData?.keyData.calorieCount,
-      carbs: rawUserData?.keyData.carbohydrateCount,
-      fat: rawUserData?.keyData.lipidCount,
-      protein: rawUserData?.keyData.proteinCount,
-      score: rawUserData?.todayScore * 100,
-      firstName: rawUserData?.userInfos.firstName,
+      userId: data?.id,
+      calorie: data?.keyData.calorieCount,
+      carbs: data?.keyData.carbohydrateCount,
+      fat: data?.keyData.lipidCount,
+      protein: data?.keyData.proteinCount,
+      score: (data?.score || data?.todayScore) * 100,
+      firstName: data?.userInfos.firstName,
     });
-  }, [rawUserData]);
+  };
 
-  useEffect(() => {
-    let activitySessions = rawActivityData?.sessions;
+  const setActivityFunc = (data) => {
+    let activitySessions = data?.sessions;
 
     let newActivity = activitySessions?.map((object) => {
       return {
@@ -51,15 +43,13 @@ function User() {
       };
     });
     setActivity(newActivity);
-  }, [rawActivityData]);
+  };
 
-  useEffect(() => {
-    setSessions(rawSessionData?.sessions);
-  }, [rawSessionData]);
+  const setSessionsFunc = (data) => setSessions(data?.sessions);
 
-  useEffect(() => {
-    let performanceResponseData = rawPerformanceData?.data;
-    let performanceResponseKind = rawPerformanceData?.kind;
+  const setPerformanceFunc = (data) => {
+    let performanceResponseData = data?.data;
+    let performanceResponseKind = data?.kind;
 
     let newArr = performanceResponseData?.map((object) => {
       return {
@@ -68,7 +58,27 @@ function User() {
       };
     });
     setPerformance(newArr);
-  }, [rawPerformanceData]);
+  };
+
+  const [userData, setUserData] = useState({});
+  const resUser = useFetch("", setUserDataFunc, "user");
+
+  const [activity, setActivity] = useState({});
+  const resActivity = useFetch(`/activity`, setActivityFunc, "activity");
+
+  const [sessions, setSessions] = useState("");
+  const resSessions = useFetch(
+    `/average-sessions`,
+    setSessionsFunc,
+    "sessions"
+  );
+
+  const [performance, setPerformance] = useState({});
+  const resPerformance = useFetch(
+    `/performance`,
+    setPerformanceFunc,
+    "performance"
+  );
 
   return (
     <div className="grid-container">
