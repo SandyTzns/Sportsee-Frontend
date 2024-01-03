@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { getUserMockedData } from "./getMockedData";
 
 export function useFetchTest(url, mock) {
   const [data, setData] = useState({});
@@ -19,7 +20,9 @@ export function useFetchTest(url, mock) {
       }
     }
 
-    function fetchMockedData() {}
+    function fetchMockedData() {
+      return getUserMockedData()
+    }
 
     if (mock) {
       fetchMockedData();

@@ -12,14 +12,24 @@ import useFetch from "../utils/useFetch";
 import { useFetchTest } from "../utils/useFetchTest";
 
 function User() {
+  const { id } = useParams();
   const {
     data: user,
     error: userError,
     loading: userLoading,
-  } = useFetchTest(`http://localhost:3000/user/12`);
-
-  console.log(user)
+  } = useFetchTest(`http://localhost:3000/user/${id}`,mock);
   
+const profile = {
+  userId: user?.id,
+  calorie: user?.keyData.calorieCount,
+  carbs: user?.keyData.carbohydrateCount,
+  fat: user?.keyData.lipidCount,
+  protein: user?.keyData.proteinCount,
+  score: (user?.score || user?.todayScore) * 100,
+  firstName: user?.userInfos.firstName,
+}
+console.log("USER",profile)
+
   const setUserDataFunc = (data) => {
     setUserData({
       userId: data?.id,
