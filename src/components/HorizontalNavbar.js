@@ -8,10 +8,12 @@ export const HorizontalNavbar = () => {
       <Link to="/">
         <img src={logo} alt="logo" className="main-logo"></img>
       </Link>
-      <Link to="#">Accueil</Link>
-      <Link to="/">Profil</Link>
-      <Link to="#">Réglage</Link>
-      <Link to="#">Communauté</Link>
+      <div className="nav_links">
+        <Link to="#">Accueil</Link>
+        <Link to="/">Profil</Link>
+        <Link to="#">Réglage</Link>
+        <Link to="#">Communauté</Link>
+      </div>
     </div>
   );
 };

@@ -4,16 +4,21 @@
 }
 .contentArea {
   flex: 1;
-  padding: 50px;
+  padding: 50px 0 0 100px;
   display: flex;
   flex-direction: column;
+  border: 4px dotted orangered;
+  width: auto;
 }
 .sections {
   display: flex;
   gap: 20px;
+  border: 4px dotted blue;
 }
 .section1 {
   flex: 0.5;
+  border: 2px solid green;
+  flex-wrap: nowrap;
 }
 .section1 div {
   display: flex;
@@ -21,7 +26,12 @@
   align-items: center;
 }
 .section2 {
-  flex: 0.5;
+  flex: auto;
+  border: 2px solid red;
+}
+
+.section3 {
+  border: 2px solid turquoise;
 }
 
 @media (max-width: 1024px) {

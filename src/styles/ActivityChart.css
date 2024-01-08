@@ -6,7 +6,8 @@
   flex-direction: column;
   gap: 20px;
   max-width: 60vw;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+  border: 2px solid rgb(214, 13, 181);
 }
 
 .legend {

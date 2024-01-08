@@ -2,8 +2,8 @@
   background-color: #020203;
   padding: 10px;
   display: flex;
+  gap: 20px;
   align-items: center;
-  justify-content: space-around;
 }
 
 .main-logo {
@@ -13,4 +13,10 @@
 .topnav-container a {
   text-decoration: none;
   color: white;
+}
+
+.nav_links {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
 }
