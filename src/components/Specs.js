@@ -6,7 +6,7 @@ import fat from "../assets/fat.png";
 
 export const Specs = ({ data }) => {
   return (
-    <div className="specs-container item item-3">
+    <div className="specs-container">
       <div className="cat-wrapper">
         <img src={calories} alt="calories-icon" />
         <div className="category">

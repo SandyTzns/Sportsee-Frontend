@@ -10,26 +10,28 @@ import { HorizontalNavbar } from "../components/HorizontalNavbar";
 import { VerticalNavbar } from "../components/VerticalNavbar";
 import useFetch from "../utils/useFetch";
 import { useFetchTest } from "../utils/useFetchTest";
+import { useParams } from "react-router-dom/dist";
 
 function User() {
   const { id } = useParams();
-  const {
+  /* const {
     data: user,
     error: userError,
     loading: userLoading,
-  } = useFetchTest(`http://localhost:3000/user/${id}`,mock);
+  } = useFetchTest(`http://localhost:3000/user/${id}`);
+  console.log("USER",user)
   
-const profile = {
-  userId: user?.id,
-  calorie: user?.keyData.calorieCount,
-  carbs: user?.keyData.carbohydrateCount,
-  fat: user?.keyData.lipidCount,
-  protein: user?.keyData.proteinCount,
-  score: (user?.score || user?.todayScore) * 100,
-  firstName: user?.userInfos.firstName,
-}
-console.log("USER",profile)
-
+  const profile = {
+    userId: user?.id,
+    calorie: user?.keyData.calorieCount,
+    carbs: user?.keyData.carbohydrateCount,
+    fat: user?.keyData.lipidCount,
+    protein: user?.keyData.proteinCount,
+    score: (user?.score || user?.todayScore) * 100,
+    firstName: user?.userInfos.firstName,
+  }
+  console.log("Profile",profile)
+*/
   const setUserDataFunc = (data) => {
     setUserData({
       userId: data?.id,
@@ -71,37 +73,58 @@ console.log("USER",profile)
   };
 
   const [userData, setUserData] = useState({});
-  const resUser = useFetch("", setUserDataFunc, "user");
+  //const resUserErr = useFetch("", setUserDataFunc, "user");
+  const resUserErr = useFetch("", setUserDataFunc);
 
   const [activity, setActivity] = useState({});
-  const resActivity = useFetch(`/activity`, setActivityFunc, "activity");
+  //const resActivityErr = useFetch(`/activity`, setActivityFunc, "activity");
+  const resActivityErr = useFetch(`/activity`, setActivityFunc);
 
   const [sessions, setSessions] = useState("");
-  const resSessions = useFetch(
+  /*const resSessionsErr = useFetch(
     `/average-sessions`,
     setSessionsFunc,
     "sessions"
-  );
+  );*/
+  const resSessionsErr = useFetch(`/average-sessions`, setSessionsFunc);
 
   const [performance, setPerformance] = useState({});
-  const resPerformance = useFetch(
+  /*const resPerformanceErr = useFetch(
     `/performance`,
     setPerformanceFunc,
     "performance"
-  );
+  );*/
+  const resPerformanceErr = useFetch(`/performance`, setPerformanceFunc);
 
   return (
-    <div className="grid-container">
+    <div>
       <HorizontalNavbar />
-      <VerticalNavbar />
-      <Greetings name={userData.firstName} />
-      <ActivityChart data={activity} />
-      <Specs data={userData} />
-      <SessionsChart data={sessions} />
-      <PerformanceChart data={performance} />
-      <ScoreChart data={userData} />
+      <div className="container">
+        <VerticalNavbar />
+        <div className="contentArea">
+          <Greetings name={userData.firstName} />
+          <div className="sections">
+            <div className="section1">
+              <ActivityChart data={activity} />
+              <div className="section3">
+                <SessionsChart data={sessions} />
+                <PerformanceChart data={performance} />
+                <ScoreChart data={userData} />
+              </div>
+            </div>
+            <div className="section2">
+              <Specs data={userData} />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
 export default User;
+/**
+ * 
+ * 
+      
+ */

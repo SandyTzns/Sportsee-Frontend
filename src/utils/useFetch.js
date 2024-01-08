@@ -14,7 +14,6 @@ function useFetch(url, setDataFunc, mockDataType) {
   const { id } = useParams();
 
   const baseUrl = `http://localhost:3000/user/${id}` + url;
-  const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -28,10 +27,9 @@ function useFetch(url, setDataFunc, mockDataType) {
   const getData = async () => {
     try {
       const response = await axios.get(baseUrl);
-      setData(response.data.data);
       setDataFunc(response.data.data);
     } catch (error) {
-      setError(`Error: ${error}`);
+      setError(`Error: ${error.message}`);
     }
   };
 
@@ -59,7 +57,7 @@ function useFetch(url, setDataFunc, mockDataType) {
     }
   };
 
-  return { data, error };
+  return { error };
 }
 
 export default useFetch;

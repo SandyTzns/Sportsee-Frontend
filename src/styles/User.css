@@ -1,4 +1,36 @@
-.grid-container {
+.container {
+  display: flex;
+  height: auto;
+}
+.contentArea {
+  flex: 1;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+}
+.sections {
+  display: flex;
+  gap: 20px;
+}
+.section1 {
+  flex: 0.5;
+}
+.section1 div {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.section2 {
+  flex: 0.5;
+}
+
+@media (max-width: 1024px) {
+  .sections {
+    flex-direction: column;
+  }
+}
+
+/*.grid-container {
   display: grid;
   height: 750px;
   grid-template-columns: 200px 257px 257px 257px 262px;
@@ -47,3 +79,4 @@
 .item-8 {
   grid-area: vertical;
 }
+*/

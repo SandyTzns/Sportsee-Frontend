@@ -16,7 +16,7 @@ export const ActivityChart = ({ data }) => {
   };
 
   return (
-    <div className="activity_wrapper item item-2">
+    <div className="activity_wrapper">
       <div className="legend">
         <span>Activité quotidienne</span>
         <ul>
@@ -37,7 +37,7 @@ export const ActivityChart = ({ data }) => {
           tickLine={false}
           tickFormatter={(day) => new Date(day).getDate()}
           padding={{ left: 9, right: 9 }}
-                 tickMargin={20}
+          tickMargin={20}
         />
 
         <YAxis

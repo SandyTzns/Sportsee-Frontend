@@ -1,25 +1,16 @@
 .topnav-container {
-  height: 91px;
-  width: 100%;
   background-color: #020203;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .main-logo {
-  height: 60.93px;
   width: 178px;
 }
 
-.topnav {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 89px 0 28px;
-  list-style: none;
-  font-weight: 500;
-  color: white;
-}
-.topnav a {
+.topnav-container a {
   text-decoration: none;
   color: white;
 }

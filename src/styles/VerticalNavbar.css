@@ -7,10 +7,11 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  margin-top: -2px;
 }
 
 .sidebar {
-  margin-top: 273px;
+  margin-top: 190px;
   margin-bottom: 163px;
   list-style: none;
   display: flex;
@@ -22,7 +23,6 @@
 .sidebar li img {
   width: 64px;
   height: 64px;
-  /* cursor: pointer; */
 }
 
 .copyright {

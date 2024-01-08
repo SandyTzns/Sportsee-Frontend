@@ -2,7 +2,7 @@ import "../styles/Greetings.css";
 
 export const Greetings = ({ name }) => {
   return (
-    <div className="greetings-container item item-1">
+    <div className="greetings-container">
       <h1>
         Bonjour <span className="username">{name}</span>
       </h1>
