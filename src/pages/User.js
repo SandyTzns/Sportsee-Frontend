@@ -97,22 +97,22 @@ function User() {
   const resPerformanceErr = useFetch(`/performance`, setPerformanceFunc);
 
   return (
-    <div>
+    <div className="layout_container">
       <HorizontalNavbar />
-      <div className="container">
+      <div className="content-container">
         <VerticalNavbar />
-        <div className="contentArea">
+        <div className="content">
           <Greetings name={userData.firstName} />
-          <div className="sections">
-            <div className="section1">
+          <div className="content-details">
+            <div className="content-charts">
               <ActivityChart data={activity} />
-              <div className="section3">
+              <div className="sps-charts">
                 <SessionsChart data={sessions} />
                 <PerformanceChart data={performance} />
                 <ScoreChart data={userData} />
               </div>
             </div>
-            <div className="section2">
+            <div className="content-specs">
               <Specs data={userData} />
             </div>
           </div>
@@ -123,8 +123,3 @@ function User() {
 }
 
 export default User;
-/**
- * 
- * 
-      
- */

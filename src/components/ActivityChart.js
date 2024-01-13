@@ -29,7 +29,13 @@ export const ActivityChart = ({ data }) => {
         </ul>
       </div>
 
-      <BarChart width={785} height={200} data={newActivity} barGap={7}>
+      <BarChart
+        width={585}
+        height={200}
+        data={newActivity}
+        barGap={7}
+        className="barChart"
+      >
         <CartesianGrid strokeDasharray="3 3" vertical={false} color="#DEDEDE" />
         <XAxis
           dataKey="day"

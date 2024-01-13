@@ -1,18 +1,15 @@
 .activity_wrapper {
-  padding: 10px 20px;
   border-radius: 8px;
   background-color: #fbfbfb;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 60vw;
   margin-bottom: 50px;
   border: 2px solid rgb(214, 13, 181);
 }
 
 .legend {
   display: flex;
-  justify-content: space-between;
   margin-top: 20px;
   margin-bottom: 10px;
   font-size: 14px;
@@ -46,3 +43,7 @@
   visibility: visible;
   background-color: blue;
 } */
+
+.barChart {
+  border: 1px solid black;
+}
