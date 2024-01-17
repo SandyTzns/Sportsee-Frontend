@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "../styles/Profile.css";
 
-function Profile() {
+export function Profile() {
   return (
     <div className="users">
       <Link to="/user/12">
@@ -13,5 +13,3 @@ function Profile() {
     </div>
   );
 }
-
-export default Profile;

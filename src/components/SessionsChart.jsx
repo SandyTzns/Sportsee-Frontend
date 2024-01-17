@@ -8,8 +8,8 @@ import {
   YAxis,
 } from "recharts";
 
-export const SessionsChart = ({ data }) => {
-  const newSession = data;
+export const SessionsChart = () => {
+  // const newSession = data;
   const formatLabel = (value) => {
     if (value === 1) return "L";
     if (value === 2) return "M";
@@ -37,7 +37,8 @@ export const SessionsChart = ({ data }) => {
         <span>Durée moyenne des</span>
         <span>sessions</span>
       </div>
-      <LineChart width={258} height={200} data={newSession}>
+      <LineChart width={258} height={200}>
+        {/* data={newSession} */}
         <CartesianGrid stroke="none" fill="red" />
         <XAxis
           dataKey="day"

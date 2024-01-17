@@ -6,23 +6,21 @@ import {
 } from "./MockedData";
 
 export const getUserMockedData = (id) => {
-  const data = USER_DATA.find((user) => user.id === Number(id));
+  const data = USER_DATA.find((user) => user.id == id);
   return data;
 };
 
 export const getActivityMockedData = (id) => {
-  const data = ACTIVITY_DATA.find((activity) => activity.userId === Number(id));
+  const data = ACTIVITY_DATA.find((activity) => activity.userId == id);
   return data;
 };
 
 export const getSessionsMockedData = (id) => {
-  const data = SESSIONS_DATA.find((session) => session.userId === Number(id));
+  const data = SESSIONS_DATA.find((session) => session.userId == id);
   return data;
 };
 
 export const getPerformanceMockedData = (id) => {
-  const data = PERFORMANCE_DATA.find(
-    (performance) => performance.userId === Number(id)
-  );
+  const data = PERFORMANCE_DATA.find((performance) => performance.userId == id);
   return data;
 };

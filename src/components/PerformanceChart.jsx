@@ -1,8 +1,8 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from "recharts";
 import "../styles/PerformanceChart.css";
 
-export const PerformanceChart = ({ data }) => {
-  const NewMe = data;
+export const PerformanceChart = () => {
+  // const NewMe = data;
   return (
     <div className="performance-wrapper item item-5">
       <RadarChart
@@ -11,7 +11,7 @@ export const PerformanceChart = ({ data }) => {
         outerRadius={70}
         width={258}
         height={233}
-        data={NewMe}
+        // data={NewMe}
       >
         <PolarGrid radialLines={false} />
         <PolarAngleAxis dataKey="kind" />

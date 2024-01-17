@@ -1,8 +1,8 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 import "../styles/ActivityChart.css";
 
-export const ActivityChart = ({ data }) => {
-  const newActivity = data;
+export const ActivityChart = () => {
+  // const newActivity = data;
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -30,9 +30,9 @@ export const ActivityChart = ({ data }) => {
       </div>
 
       <BarChart
-        width={585}
+        width={485}
         height={200}
-        data={newActivity}
+        // data={newActivity}
         barGap={7}
         className="barChart"
       >

@@ -4,6 +4,7 @@
   justify-content: space-between;
   height: 613px;
   font-family: "Roboto", sans-serif;
+  width: 300px;
 }
 
 .cat-wrapper {
@@ -19,7 +20,7 @@
 
 .specs-container img {
   height: 60px;
-  width: 60px;
+  max-width: 60px;
 }
 
 .category {
