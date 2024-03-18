@@ -1,4 +1,4 @@
-export const USER_DATA = [
+const USER_MAIN_DATA = [
   {
     id: 12,
     userInfos: {
@@ -31,7 +31,7 @@ export const USER_DATA = [
   },
 ];
 
-export const ACTIVITY_DATA = [
+const USER_ACTIVITY = [
   {
     userId: 12,
     sessions: [
@@ -114,7 +114,7 @@ export const ACTIVITY_DATA = [
   },
 ];
 
-export const SESSIONS_DATA = [
+const USER_AVERAGE_SESSIONS = [
   {
     userId: 12,
     sessions: [
@@ -183,7 +183,7 @@ export const SESSIONS_DATA = [
   },
 ];
 
-export const PERFORMANCE_DATA = [
+const USER_PERFORMANCE = [
   {
     userId: 12,
     kind: {
@@ -259,3 +259,10 @@ export const PERFORMANCE_DATA = [
     ],
   },
 ];
+
+module.exports = {
+  USER_MAIN_DATA,
+  USER_ACTIVITY,
+  USER_AVERAGE_SESSIONS,
+  USER_PERFORMANCE,
+};

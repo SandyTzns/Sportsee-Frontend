@@ -4,7 +4,7 @@ import carbs from "../assets/carbs.png";
 import protein from "../assets/protein.png";
 import fat from "../assets/fat.png";
 
-export const Specs = () => {
+export const Specs = ({ data }) => {
   return (
     <div className="specs-container">
       <div className="cat-wrapper">

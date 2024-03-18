@@ -18,7 +18,10 @@
 .legend ul {
   display: flex;
   gap: 50px;
-  list-style: none;
+}
+
+.legend ul li::marker {
+  font-size: 1.5rem;
 }
 
 .redDot {
