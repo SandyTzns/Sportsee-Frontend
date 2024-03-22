@@ -1,6 +1,6 @@
 import "./App.css";
 import { Profile } from "./pages/Profile";
-import { UserOfMockedData } from "./pages/UserOfMockedData";
+import { User } from "./pages/User";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Profile />} />
-        <Route path="/user/:id" element={<UserOfMockedData />} />
+        <Route path="/user/:id" element={<User />} />
       </Routes>
     </BrowserRouter>
   );
