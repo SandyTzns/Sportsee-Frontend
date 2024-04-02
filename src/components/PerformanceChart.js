@@ -1,17 +1,42 @@
+import { useParams } from "react-router";
+import { useEffect, useState } from "react";
+import { getData } from "../services/getData";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from "recharts";
 import "../styles/PerformanceChart.css";
 
 export const PerformanceChart = () => {
-  // const NewMe = data;
+  const { id } = useParams();
+  const [performance, setPerformance] = useState([]);
+
+  useEffect(() => {
+    const data = async () => {
+      const request = await getData("USER_PERFORMANCE", parseInt(id));
+      if (!request) return alert("Error Perfomance Chart");
+      console.log(request.data);
+
+      let performanceResponseData = request.data?.data;
+      let performanceResponsekind = request.data?.kind;
+
+      let newPerformanceArray = performanceResponseData?.map((object) => {
+        return {
+          value: object.value,
+          kind: performanceResponsekind[`${object.kind}`],
+        };
+      });
+      setPerformance(newPerformanceArray);
+    };
+    data();
+  }, [id]);
+
   return (
     <div className="performance-wrapper item item-5">
       <RadarChart
-        cx={125}
-        cy={120}
-        outerRadius={70}
-        width={258}
+        cx={115}
+        cy={110}
+        outerRadius={60}
+        width={220}
         height={233}
-        // data={NewMe}
+        data={performance}
       >
         <PolarGrid radialLines={false} />
         <PolarAngleAxis dataKey="kind" />

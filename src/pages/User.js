@@ -9,69 +9,20 @@ import { PerformanceChart } from "../components/PerformanceChart";
 import { SessionsChart } from "../components/SessionsChart";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useFetch } from "../utils/useFetch";
-import { Service, getUser } from "../services/service";
+import { getData } from "../services/getData";
 
 export function User() {
   const { id } = useParams();
-
-  //   const userData = getUser(id);
-  //   console.log(userData);
-
-  const baseUrl = `http://localhost:3000/user/${id}`;
-
-  const { data: rawUserData } = useFetch(baseUrl);
-  alert(JSON.stringify(rawUserData));
-  const [userData, setUserData] = useState({});
-
-  const { data: rawActivityData } = useFetch(`${baseUrl}/activity`);
-  const [activity, setActivity] = useState({});
-
-  const { data: rawSessionData } = useFetch(`${baseUrl}/average-sessions`);
-  const [sessions, setSessions] = useState({});
-
-  const { data: rawPerformanceData } = useFetch(`${baseUrl}/performance`);
-  const [performance, setPerformance] = useState({});
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    // user
-    setUserData({
-      userId: rawUserData?.id,
-      calorie: rawUserData?.keydata.calorieCount,
-      carbs: rawUserData?.keydata.carbohydrateCount,
-      fat: rawUserData?.keydata.lipidCount,
-      protein: rawUserData?.keydata.proteinCount,
-      score: (rawUserData?.todayScore || rawUserData?.score) * 100,
-      firstName: rawUserData?.keydata.userInfos.firstname,
-    });
-
-    // activity
-    let activitySessions = rawActivityData?.sessions;
-    let newActivity = activitySessions?.map((object) => {
-      return {
-        day: object.day,
-        kilogram: object.kilogram,
-        calories: Math.round(object.calories / 10),
-      };
-    });
-    setActivity(newActivity);
-    console.log(activity);
-
-    // session
-    setSessions(rawSessionData?.sessions);
-
-    // performance
-    let performanceResponseData = rawPerformanceData?.data;
-    let performanceResponsekind = rawPerformanceData?.kind;
-
-    let newPerformanceArray = performanceResponseData?.map((object) => {
-      return {
-        value: object.value,
-        kind: performanceResponsekind[`${object.kind}`],
-      };
-    });
-    setPerformance(newPerformanceArray);
-  }, [rawUserData, rawActivityData, rawSessionData, rawPerformanceData]);
+    const data = async () => {
+      const response = await getData("USER_MAIN_DATA", parseInt(id));
+      if (!response) return alert("cannot get API");
+      setData(response.data);
+    };
+    data();
+  }, [id]);
 
   return (
     <div className="layout_container">
@@ -79,17 +30,17 @@ export function User() {
       <div className="content-container">
         <VerticalNavbar />
         <div className="content">
-          {<Greetings name={userData.firstName} />}
+          <Greetings name={data.userInfos?.firstName} />
           <div className="charts-container">
             <div className="allcharts">
-              <ActivityChart data={activity} />
+              <ActivityChart />
               <div className="smallercharts">
-                <SessionsChart data={sessions} />
-                <PerformanceChart data={performance} />
-                <ScoreChart data={userData} />
+                <SessionsChart />
+                <PerformanceChart />
+                <ScoreChart data={data} />
               </div>
             </div>
-            {<Specs data={userData} />}
+            {<Specs data={data} />}
           </div>
         </div>
       </div>

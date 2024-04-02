@@ -4,7 +4,8 @@
   justify-content: space-between;
   height: 613px;
   font-family: "Roboto", sans-serif;
-  width: 300px;
+  width: 220px;
+  border: 1px solid green;
 }
 
 .cat-wrapper {
@@ -12,15 +13,16 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  height: 124px;
+  height: 100px;
   width: auto;
   background-color: #fbfbfb;
   border-radius: 5px;
+  border: 1px solid red;
 }
 
 .specs-container img {
-  height: 60px;
-  max-width: 60px;
+  height: 40px;
+  max-width: 40px;
 }
 
 .category {
@@ -33,12 +35,12 @@
 .nb {
   color: #282d30;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .cat-text {
   color: #74798c;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.3px;
 }

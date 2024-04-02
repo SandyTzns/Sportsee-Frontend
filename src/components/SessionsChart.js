@@ -1,3 +1,6 @@
+import { useParams } from "react-router";
+import { useEffect, useState } from "react";
+import { getData } from "../services/getData";
 import "../styles/SessionsChart.css";
 import {
   LineChart,
@@ -9,7 +12,18 @@ import {
 } from "recharts";
 
 export const SessionsChart = () => {
-  // const newSession = data;
+  const { id } = useParams();
+  const [session, setSession] = useState([]);
+
+  useEffect(() => {
+    const data = async () => {
+      const request = await getData("USER_AVERAGE_SESSIONS", parseInt(id));
+      if (!request) return alert("Error Average Session Chart");
+      console.log(request.data.sessions);
+      setSession(request.data.sessions);
+    };
+    data();
+  }, [id]);
   const formatLabel = (value) => {
     if (value === 1) return "L";
     if (value === 2) return "M";
@@ -37,8 +51,7 @@ export const SessionsChart = () => {
         <span>Durée moyenne des</span>
         <span>sessions</span>
       </div>
-      <LineChart width={258} height={200}>
-        {/* data={newSession} */}
+      <LineChart width={220} height={200} data={session}>
         <CartesianGrid stroke="none" fill="red" />
         <XAxis
           dataKey="day"
@@ -51,7 +64,6 @@ export const SessionsChart = () => {
           }}
           padding={{ left: 10, right: 10 }}
         />
-
         <YAxis hide domain={["dataMin - 3", "auto"]} />
         <Tooltip cursor={false} content={<CustomTooltip />} />
         <Line

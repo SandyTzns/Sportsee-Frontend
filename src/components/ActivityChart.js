@@ -1,8 +1,29 @@
+import { useParams } from "react-router";
+import { useEffect, useState } from "react";
+import { getData } from "../services/getData";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 import "../styles/ActivityChart.css";
 
-export const ActivityChart = ({ data }) => {
-  const newActivity = data;
+export const ActivityChart = () => {
+  const { id } = useParams();
+  const [activity, setActivity] = useState([]);
+
+  useEffect(() => {
+    const data = async () => {
+      const request = await getData("USER_ACTIVITY", parseInt(id));
+      if (!request) return alert("Error Chart Activity");
+      let activitySessions = request.data.sessions;
+      let newActivity = activitySessions?.map((object) => {
+        return {
+          day: object.day,
+          kilogram: object.kilogram,
+          calories: Math.round(object.calories / 10),
+        };
+      });
+      setActivity(newActivity);
+    };
+    data();
+  }, [id]);
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -30,9 +51,9 @@ export const ActivityChart = ({ data }) => {
       </div>
 
       <BarChart
-        width={485}
+        width={685}
         height={200}
-        data={newActivity}
+        data={activity}
         barGap={7}
         className="barChart"
       >
@@ -43,7 +64,7 @@ export const ActivityChart = ({ data }) => {
           tickLine={false}
           tickFormatter={(day) => new Date(day).getDate()}
           padding={{ left: 9, right: 9 }}
-          tickMargin={20}
+          tickMargin={10}
         />
 
         <YAxis
