@@ -6,6 +6,7 @@
 }
 .content {
   margin-top: 50px;
+
   display: flex;
   flex-direction: column;
 }
@@ -13,8 +14,10 @@
 .charts-container {
   display: flex;
   width: 90vw;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   margin-top: 30px;
+  padding-left: 55px;
+  gap: 50px;
 }
 
 .allcharts {

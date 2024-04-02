@@ -2,8 +2,8 @@
   position: relative;
   height: 263px;
   border-radius: 8px;
-  border: 1px solid red;
-  background-color: white;
+
+  background-color: #fbfbfb;
 }
 
 .text {
@@ -16,6 +16,9 @@
   font-size: 26px;
   font-weight: 500;
   color: #979797;
+  background-color: white;
+  border-radius: 50%;
+  padding: 20px;
 }
 
 .percent {

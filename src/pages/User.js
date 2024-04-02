@@ -37,7 +37,7 @@ export function User() {
               <div className="smallercharts">
                 <SessionsChart />
                 <PerformanceChart />
-                <ScoreChart data={data} />
+                <ScoreChart data={data.todayScore || data.score} />
               </div>
             </div>
             {<Specs data={data} />}
