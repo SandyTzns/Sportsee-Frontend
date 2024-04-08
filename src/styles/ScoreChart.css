@@ -1,18 +1,18 @@
 .score-container {
   position: relative;
   height: 263px;
+  width: 33%;
   border-radius: 8px;
-
   background-color: #fbfbfb;
 }
 
-.text {
+.score-text {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: absolute;
-  top: 27%;
-  left: 30%;
+  top: 18%;
+  left: 20%;
   font-size: 26px;
   font-weight: 500;
   color: #979797;

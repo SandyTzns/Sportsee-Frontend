@@ -1,7 +1,15 @@
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { getData } from "../services/getData";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 import "../styles/ActivityChart.css";
 
 export const ActivityChart = () => {
@@ -37,56 +45,65 @@ export const ActivityChart = () => {
   };
 
   return (
-    <div className="activity_wrapper">
+    <div className="activity_container">
       <div className="legend">
         <span>Activité quotidienne</span>
         <ul>
           <li>
-            <span className="blacktxt">Poids (kg)</span>
+            <span className="legend-text">Poids (kg)</span>
           </li>
           <li className="redDot">
-            <span className="blacktxt">Calories brûlées (Kcal)</span>
+            <span className="legend-text">Calories brûlées (Kcal)</span>
           </li>
         </ul>
       </div>
+      <ResponsiveContainer height={190}>
+        <BarChart
+          data={activity}
+          barCategoryGap={1}
+          barGap={7}
+          className="barChart"
+        >
+          <CartesianGrid
+            strokeDasharray="3 3"
+            vertical={false}
+            color="#DEDEDE"
+          />
+          <XAxis
+            dataKey="day"
+            strokeOpacity={1}
+            tickLine={false}
+            tickFormatter={(day) => new Date(day).getDate()}
+            padding={{ left: 9, right: 9 }}
+            tickMargin={10}
+          />
 
-      <BarChart
-        width={685}
-        height={200}
-        data={activity}
-        barGap={7}
-        className="barChart"
-      >
-        <CartesianGrid strokeDasharray="3 3" vertical={false} color="#DEDEDE" />
-        <XAxis
-          dataKey="day"
-          strokeOpacity={1}
-          tickLine={false}
-          tickFormatter={(day) => new Date(day).getDate()}
-          padding={{ left: 9, right: 9 }}
-          tickMargin={10}
-        />
+          <YAxis
+            orientation="right"
+            dataKey="kilogram"
+            strokeDasharray={1}
+            tickCount={3}
+            strokeOpacity={0}
+            tickMargin={20}
+            axisLine={false}
+          />
 
-        <YAxis
-          orientation="right"
-          dataKey="kilogram"
-          strokeDasharray={1}
-          tickCount={3}
-          strokeOpacity={0}
-          tickMargin={20}
-          axisLine={false}
-        />
-
-        <Tooltip content={<CustomTooltip />} />
-        <Bar
-          dataKey="kilogram"
-          fill="black"
-          barSize={7}
-          radius={[3, 3, 0, 0]}
-          activeBar={true}
-        />
-        <Bar dataKey="calories" fill="red" barSize={7} radius={[3, 3, 0, 0]} />
-      </BarChart>
+          <Tooltip content={<CustomTooltip />} />
+          <Bar
+            dataKey="kilogram"
+            fill="black"
+            barSize={7}
+            radius={[3, 3, 0, 0]}
+            activeBar={true}
+          />
+          <Bar
+            dataKey="calories"
+            fill="red"
+            barSize={7}
+            radius={[3, 3, 0, 0]}
+          />
+        </BarChart>
+      </ResponsiveContainer>
     </div>
   );
 };

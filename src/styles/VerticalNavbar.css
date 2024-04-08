@@ -1,5 +1,5 @@
 .sidebar-container {
-  width: 117px;
+  min-width: 117px;
   height: auto;
   background-color: black;
   color: beige;

@@ -19,7 +19,6 @@ export const SessionsChart = () => {
     const data = async () => {
       const request = await getData("USER_AVERAGE_SESSIONS", parseInt(id));
       if (!request) return alert("Error Average Session Chart");
-      console.log(request.data.sessions);
       setSession(request.data.sessions);
     };
     data();
@@ -46,12 +45,12 @@ export const SessionsChart = () => {
   };
 
   return (
-    <div className="helloContainer item item-4">
+    <div className="sessions-container item item-4">
       <div className="sessions_legend">
         <span>Durée moyenne des</span>
         <span>sessions</span>
       </div>
-      <LineChart width={220} height={200} data={session}>
+      <LineChart width={253} height={200} data={session}>
         <CartesianGrid stroke="none" fill="red" />
         <XAxis
           dataKey="day"

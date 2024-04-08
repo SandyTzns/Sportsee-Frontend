@@ -12,7 +12,6 @@ export const PerformanceChart = () => {
     const data = async () => {
       const request = await getData("USER_PERFORMANCE", parseInt(id));
       if (!request) return alert("Error Perfomance Chart");
-      console.log(request.data);
 
       let performanceResponseData = request.data?.data;
       let performanceResponsekind = request.data?.kind;
@@ -29,13 +28,13 @@ export const PerformanceChart = () => {
   }, [id]);
 
   return (
-    <div className="performance-wrapper item item-5">
+    <div className="performance-container item item-5">
       <RadarChart
-        cx={115}
-        cy={110}
+        cx={135}
+        cy={130}
         outerRadius={60}
-        width={220}
-        height={233}
+        width={253}
+        height={253}
         data={performance}
       >
         <PolarGrid radialLines={false} />

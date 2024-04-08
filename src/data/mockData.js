@@ -261,9 +261,7 @@ const USER_PERFORMANCE = [
 ];
 
 /**
- * Class MockData to collect data
- * @param {number} id
- * @returns {object} res
+ * Class MockData that holds all the functions to find data corresponding to IDs
  */
 export default class MockData {
   static getUser = async (id) => {

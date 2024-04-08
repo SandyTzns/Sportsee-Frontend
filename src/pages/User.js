@@ -40,7 +40,7 @@ export function User() {
                 <ScoreChart data={data.todayScore || data.score} />
               </div>
             </div>
-            {<Specs data={data} />}
+            <Specs data={data} />
           </div>
         </div>
       </div>

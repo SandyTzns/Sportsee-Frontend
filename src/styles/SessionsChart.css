@@ -1,9 +1,10 @@
-.helloContainer {
+.sessions-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   background-color: red;
   height: 263px;
+  width: 33%;
   border-radius: 8px;
 }
 

@@ -3,9 +3,9 @@ import MockData from "../data/mockData";
 
 // J'initialise une variable pour vérifier que la condition est true or not
 
-let useDatafromAPI = "false";
+let useDatafromAPI = "true";
 
-// condition ternaire pour savoir si j'utilise les data de l'API ou du MOCKDATA
+// condition ternaire pour savoir si j'utilise les data de l'API ou du MOCKDATA en fonction du dessus
 
 const exportedAPI = useDatafromAPI == "true" ? apiCall : MockData;
 
