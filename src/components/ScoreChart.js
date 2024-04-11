@@ -1,4 +1,4 @@
-import { RadialBarChart, RadialBar } from "recharts";
+import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts";
 import "../styles/ScoreChart.css";
 
 export const ScoreChart = ({ data }) => {
@@ -10,27 +10,29 @@ export const ScoreChart = ({ data }) => {
 
   return (
     <div className="score-container item item-6">
-      <RadialBarChart
-        width={220}
-        height={233}
-        cx={109}
-        cy={120}
-        innerRadius={90}
-        outerRadius={190}
-        startAngle={startAngle}
-        endAngle={endAngle}
-        barSize={10}
-        data={score}
-      >
-        <RadialBar
-          minAngle={15}
-          cornerRadius={10}
-          background
-          clockWise
-          dataKey="value"
-          fill="red"
-        />
-      </RadialBarChart>
+      <ResponsiveContainer>
+        <RadialBarChart
+          width={220}
+          height={233}
+          cx={109}
+          cy={120}
+          innerRadius={90}
+          outerRadius={190}
+          startAngle={startAngle}
+          endAngle={endAngle}
+          barSize={10}
+          data={score}
+        >
+          <RadialBar
+            minAngle={15}
+            cornerRadius={10}
+            background
+            clockWise
+            dataKey="value"
+            fill="red"
+          />
+        </RadialBarChart>
+      </ResponsiveContainer>
       <div className="score-text">
         <span className="percent">{scoreData}%</span>
         <span>de votre</span>

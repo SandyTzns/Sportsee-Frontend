@@ -57,7 +57,7 @@ export const ActivityChart = () => {
           </li>
         </ul>
       </div>
-      <ResponsiveContainer height={190}>
+      <ResponsiveContainer>
         <BarChart
           data={activity}
           barCategoryGap={1}

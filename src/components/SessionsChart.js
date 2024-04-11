@@ -9,6 +9,7 @@ import {
   CartesianGrid,
   Tooltip,
   YAxis,
+  ResponsiveContainer,
 } from "recharts";
 
 export const SessionsChart = () => {
@@ -50,30 +51,32 @@ export const SessionsChart = () => {
         <span>Durée moyenne des</span>
         <span>sessions</span>
       </div>
-      <LineChart width={253} height={200} data={session}>
-        <CartesianGrid stroke="none" fill="red" />
-        <XAxis
-          dataKey="day"
-          tickFormatter={formatLabel}
-          strokeOpacity={0}
-          tickLine={false}
-          tick={{
-            fill: "rgba(255,255,255,0.6)",
-            fontSize: "14px",
-          }}
-          padding={{ left: 10, right: 10 }}
-        />
-        <YAxis hide domain={["dataMin - 3", "auto"]} />
-        <Tooltip cursor={false} content={<CustomTooltip />} />
-        <Line
-          type="natural"
-          dataKey="sessionLength"
-          stroke="white"
-          strokeWidth={2}
-          activeDot={true}
-          dot={false}
-        />
-      </LineChart>
+      <ResponsiveContainer height="80%">
+        <LineChart width={253} height={100} data={session}>
+          <CartesianGrid stroke="none" fill="red" />
+          <XAxis
+            dataKey="day"
+            tickFormatter={formatLabel}
+            strokeOpacity={0}
+            tickLine={false}
+            tick={{
+              fill: "rgba(255,255,255,0.6)",
+              fontSize: "14px",
+            }}
+            padding={{ left: 10, right: 10 }}
+          />
+          <YAxis hide domain={["dataMin - 3", "auto"]} />
+          <Tooltip cursor={false} content={<CustomTooltip />} />
+          <Line
+            type="natural"
+            dataKey="sessionLength"
+            stroke="white"
+            strokeWidth={2}
+            activeDot={true}
+            dot={false}
+          />
+        </LineChart>
+      </ResponsiveContainer>
     </div>
   );
 };

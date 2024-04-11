@@ -2,11 +2,18 @@
   display: flex;
   flex-direction: column;
   border-radius: 8px;
-  width: 835px;
+  /* width: 835px; */
+  width: 100%;
   height: 320px;
   background-color: #fbfbfb;
   gap: 20px;
   margin-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
+  .activity_container {
+    width: 95%;
+  }
 }
 
 .legend {

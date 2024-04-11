@@ -263,6 +263,7 @@ const USER_PERFORMANCE = [
 /**
  * Class MockData that holds all the functions to find data corresponding to IDs
  */
+
 export default class MockData {
   static getUser = async (id) => {
     const res = USER_MAIN_DATA.find((el) => el.id === parseInt(id));

@@ -4,7 +4,7 @@
   display: flex;
   gap: 20px;
   align-items: center;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .main-logo {
@@ -20,4 +20,10 @@
   display: flex;
   flex: 1;
   justify-content: space-around;
+}
+
+@media (max-width: 1024px) {
+  .topnav-container {
+    width: 100%;
+  }
 }
