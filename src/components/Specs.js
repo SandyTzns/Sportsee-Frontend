@@ -10,7 +10,7 @@ export const Specs = ({ data }) => {
   let carbohydrates = data.keyData?.carbohydrateCount;
   let lipids = data.keyData?.lipidCount;
   return (
-    <div className="specs-container">
+    <div className="specs-container specs">
       <div className="card">
         <img src={calories} alt="calories-icon" />
         <div className="specs-category">

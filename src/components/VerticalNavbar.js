@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export const VerticalNavbar = () => {
   return (
-    <div className="sidebar-container">
+    <div className="sidebar-container verticalNavbar">
       <ul className="sidebar">
         <Link to="#">
           <li>

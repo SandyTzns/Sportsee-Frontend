@@ -45,7 +45,7 @@ export const ActivityChart = () => {
   };
 
   return (
-    <div className="activity_container">
+    <div className="activity_container activityChart">
       <div className="legend">
         <span>Activité quotidienne</span>
         <ul>
@@ -57,7 +57,7 @@ export const ActivityChart = () => {
           </li>
         </ul>
       </div>
-      <ResponsiveContainer>
+      <ResponsiveContainer width="100%" height={150}>
         <BarChart
           data={activity}
           barCategoryGap={1}
@@ -77,7 +77,6 @@ export const ActivityChart = () => {
             padding={{ left: 9, right: 9 }}
             tickMargin={10}
           />
-
           <YAxis
             orientation="right"
             dataKey="kilogram"
@@ -87,7 +86,6 @@ export const ActivityChart = () => {
             tickMargin={20}
             axisLine={false}
           />
-
           <Tooltip content={<CustomTooltip />} />
           <Bar
             dataKey="kilogram"

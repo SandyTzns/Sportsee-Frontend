@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const HorizontalNavbar = () => {
   return (
-    <div className="topnav-container">
+    <div className="topnav-container navbar">
       <Link to="/">
         <img src={logo} alt="logo" className="main-logo"></img>
       </Link>

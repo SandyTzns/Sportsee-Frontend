@@ -25,16 +25,16 @@ export function User() {
   }, [id]);
 
   return (
-    <div className="layout_container">
+    <div className="wrapper">
       <HorizontalNavbar />
-      <div className="content-container">
+      <div className="main">
         <VerticalNavbar />
-        <div className="content">
+        <div className="dashboard">
           <Greetings name={data.userInfos?.firstName} />
-          <div className="charts-container">
-            <div className="allcharts">
+          <div className="charts">
+            <div className="recharts">
               <ActivityChart />
-              <div className="smallercharts">
+              <div className="smaller-charts">
                 <SessionsChart />
                 <PerformanceChart />
                 <ScoreChart data={data.todayScore || data.score} />

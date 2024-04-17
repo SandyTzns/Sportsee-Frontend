@@ -1,8 +1,7 @@
 .score-container {
   position: relative;
-  height: 263px;
+  height: 213px;
   width: 33%;
-  border-radius: 8px;
   background-color: #fbfbfb;
 }
 
@@ -11,24 +10,13 @@
   flex-direction: column;
   align-items: center;
   position: absolute;
-  top: 18%;
-  left: 20%;
-  /* font-size: 26px; */
-
+  top: 27%;
+  left: 26%;
   font-weight: 500;
   color: #979797;
   background-color: white;
   border-radius: 50%;
   padding: 20px;
-}
-
-@media (max-width: 1024px) {
-  .score-text {
-    position: absolute;
-    top: 25%;
-    left: 25%;
-    font-size: 16px;
-  }
 }
 
 .percent {

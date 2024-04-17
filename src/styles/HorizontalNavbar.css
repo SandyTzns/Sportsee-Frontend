@@ -4,11 +4,11 @@
   display: flex;
   gap: 20px;
   align-items: center;
-  /* width: 100%; */
+  width: 100vw;
 }
 
 .main-logo {
-  width: 178px;
+  max-width: 178px;
 }
 
 .topnav-container a {
@@ -20,10 +20,4 @@
   display: flex;
   flex: 1;
   justify-content: space-around;
-}
-
-@media (max-width: 1024px) {
-  .topnav-container {
-    width: 100%;
-  }
 }

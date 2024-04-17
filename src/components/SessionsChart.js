@@ -46,13 +46,13 @@ export const SessionsChart = () => {
   };
 
   return (
-    <div className="sessions-container item item-4">
+    <div className="sessions-container">
       <div className="sessions_legend">
         <span>Durée moyenne des</span>
         <span>sessions</span>
       </div>
-      <ResponsiveContainer height="80%">
-        <LineChart width={253} height={100} data={session}>
+      <ResponsiveContainer width="100%" height={160}>
+        <LineChart data={session}>
           <CartesianGrid stroke="none" fill="red" />
           <XAxis
             dataKey="day"

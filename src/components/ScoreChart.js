@@ -9,13 +9,11 @@ export const ScoreChart = ({ data }) => {
   const endAngle = startAngle + formatDataAngle;
 
   return (
-    <div className="score-container item item-6">
-      <ResponsiveContainer>
+    <div className="score-container">
+      <ResponsiveContainer width="100%">
         <RadialBarChart
-          width={220}
-          height={233}
           cx={109}
-          cy={120}
+          cy={110}
           innerRadius={90}
           outerRadius={190}
           startAngle={startAngle}

@@ -34,14 +34,14 @@ export const PerformanceChart = () => {
   }, [id]);
 
   return (
-    <div className="performance-container item item-5">
-      <ResponsiveContainer>
+    <div className="performance-container">
+      <ResponsiveContainer width="100%">
         <RadarChart
-          cx={115}
-          cy={130}
-          outerRadius={60}
-          width={253}
-          height={253}
+          cx={108}
+          cy={110}
+          outerRadius={50}
+          width={223}
+          height={223}
           data={performance}
         >
           <PolarGrid radialLines={false} />
