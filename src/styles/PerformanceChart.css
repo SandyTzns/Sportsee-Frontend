@@ -1,9 +1,15 @@
 .performance-container {
   background-color: #282d30;
-  width: 33%;
+  max-width: 200px;
   height: 213px;
 }
 
 tspan {
   font-size: 12px;
+}
+
+@media screen and (min-width: 1024px) and (min-height: 780px) {
+  .performance-container {
+    width: 33%;
+  }
 }

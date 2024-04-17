@@ -1,5 +1,5 @@
 .sidebar-container {
-  max-width: 117px;
+  min-width: 117px;
   height: auto;
   background-color: black;
   color: beige;
@@ -11,7 +11,7 @@
 }
 
 .sidebar {
-  margin-top: 190px;
+  margin-top: 130px;
   margin-bottom: 163px;
   list-style: none;
   display: flex;

@@ -37,10 +37,10 @@ export const PerformanceChart = () => {
     <div className="performance-container">
       <ResponsiveContainer width="100%">
         <RadarChart
-          cx={108}
+          cx={95}
           cy={110}
-          outerRadius={50}
-          width={223}
+          outerRadius={40}
+          width={203}
           height={223}
           data={performance}
         >

@@ -1,7 +1,7 @@
 .score-container {
   position: relative;
   height: 213px;
-  width: 33%;
+  max-width: 200px;
   background-color: #fbfbfb;
 }
 
@@ -21,4 +21,10 @@
 
 .percent {
   color: #282d30;
+}
+
+@media screen and (min-width: 1024px) and (min-height: 780px) {
+  .score-container {
+    width: 33%;
+  }
 }
