@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: flex-end;
   background-color: red;
-  max-width: 200px;
+  width: 200px;
   height: 213px;
 }
 
